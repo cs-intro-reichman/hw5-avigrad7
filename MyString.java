@@ -67,6 +67,9 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
+        if (str == "") {
+            return "";
+        }
         String spaced = "";
         for (char letter : str.toCharArray()) {
             spaced += letter + " ";
@@ -103,15 +106,15 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-        for (char letter : str1.toCharArray()) {
-            for (int i = 0; i < str2.length(); i++) {
-                if (letter == str2.charAt(i)) {
-                    str2 = str2.substring(0, i) + str2.substring(i+1);
-                    i = str2.length();
+        for (char letter : str2.toCharArray()) {
+            for (int i = 0; i < str1.length(); i++) {
+                if (letter == str1.charAt(i)) {
+                    str1 = str1.substring(0, i) + str1.substring(i+1);
+                    i = str1.length();
                 }
             }
         }
-        return str2;
+        return str1;
     }
 
     /**
