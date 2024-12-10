@@ -176,7 +176,7 @@ public class Scrabble {
 				int inputScore = wordScore(input);
 				score += inputScore;
 				hand = remove(hand, input);
-				System.out.println(input + " earned " + inputScore + " points. Score: " + score + " points");
+				System.out.println(input + " earned " + inputScore + " points. Score: " + score + " points\n");
 			}
 			else {
 				System.out.println("Invalid word. Try again.");
