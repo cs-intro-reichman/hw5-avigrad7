@@ -78,6 +78,25 @@ public class Scrabble {
         return str1;
     }
 
+	//Copied from MyString.java
+	public static boolean subsetOf(String str1, String str2) {
+        boolean found = false;
+        for (char str1Letter : str1.toCharArray()) {
+            for (int i = 0; i < str2.length(); i++) {
+                if (str1Letter == str2.charAt(i)) {
+                    found = true;
+                    str2 = str2.substring(0, i) + str2.substring(i + 1);
+                    i = str2.length();
+                }
+            }
+            if (!found) {
+                return false;
+            }
+            found = false;
+        }
+        return true;
+    }
+
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
@@ -95,12 +114,16 @@ public class Scrabble {
 	public static int wordScore(String word) {
 		word = word.toLowerCase();
 		int score = 0;
-		if (word.contains("runi")) {
+		if (subsetOf("runi", word)) {
 			score += 1000;
 		}
 		for (char letter : word.toCharArray()) {
 			score += SCRABBLE_LETTER_VALUES[(int)letter - 'a'];
 		} 
+		score *= word.length();
+		if (word.length() == HAND_SIZE) {
+			score += 50;
+		}
 		return score;
 	}
 
