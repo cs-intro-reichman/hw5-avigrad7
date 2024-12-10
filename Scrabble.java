@@ -150,8 +150,10 @@ public class Scrabble {
 				break;
 			}
 			if (isWordInDictionary(input) && isInHand(input, hand)) {
-				score += wordScore(input);
+				int inputScore = wordScore(input);
+				score += inputScore;
 				hand = remove(hand, input);
+				System.out.println(input + " earned " + inputScore + " points. Score: " + score + " points");
 			}
 		}
 		if (hand.length() == 0) {
@@ -194,7 +196,7 @@ public class Scrabble {
 		// testScrabbleScore();    
 		// testCreateHands();  
 		// testPlayHands();
-		playGame();
+		// playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
