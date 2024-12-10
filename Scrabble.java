@@ -178,6 +178,9 @@ public class Scrabble {
 				hand = remove(hand, input);
 				System.out.println(input + " earned " + inputScore + " points. Score: " + score + " points");
 			}
+			else {
+				System.out.println("Invalid word. Try again.");
+			}
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
