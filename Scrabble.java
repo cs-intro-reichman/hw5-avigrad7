@@ -114,15 +114,15 @@ public class Scrabble {
 	public static int wordScore(String word) {
 		word = word.toLowerCase();
 		int score = 0;
-		if (subsetOf("runi", word)) {
-			score += 1000;
-		}
 		for (char letter : word.toCharArray()) {
 			score += SCRABBLE_LETTER_VALUES[(int)letter - 'a'];
 		} 
 		score *= word.length();
 		if (word.length() == HAND_SIZE) {
 			score += 50;
+		}
+		if (subsetOf("runi", word)) {
+			score += 1000;
 		}
 		return score;
 	}
